@@ -43,13 +43,43 @@ function loadBooks() {
   });
 }
 
-// Filtrar libros según la categoría seleccionada
+// // Filtrar libros según la categoría seleccionada
+// function filterBooks() {
+//   const categoryFilter = document.getElementById("category-filter").value;
+//   const filteredBooks =
+//     categoryFilter === "all"
+//       ? books
+//       : books.filter((book) => book.category === categoryFilter);
+
+//   const tableBody = document.getElementById("book-table-body");
+//   tableBody.innerHTML = ""; // Limpiar tabla antes de cargar nuevos datos
+
+//   filteredBooks.forEach((book) => {
+//     const row = document.createElement("tr");
+//     row.classList.add(book.category); // Añadir clase de categoría
+
+//     row.innerHTML = `
+//       <td>${book.title}</td>
+//       <td>${book.author}</td>
+//       <td><button class="reserve-button" onclick="reserveBook('${book.title}')">Reserve</button></td>
+//     `;
+
+//     tableBody.appendChild(row);
+//   });
+// }
+
 function filterBooks() {
   const categoryFilter = document.getElementById("category-filter").value;
-  const filteredBooks =
-    categoryFilter === "all"
-      ? books
-      : books.filter((book) => book.category === categoryFilter);
+  const searchBox = document.getElementById("search-box").value.toLowerCase();
+
+  const filteredBooks = books.filter((book) => {
+    const matchesCategory =
+      categoryFilter === "all" || book.category === categoryFilter;
+    const matchesSearch =
+      book.title.toLowerCase().includes(searchBox) ||
+      book.author.toLowerCase().includes(searchBox);
+    return matchesCategory && matchesSearch;
+  });
 
   const tableBody = document.getElementById("book-table-body");
   tableBody.innerHTML = ""; // Limpiar tabla antes de cargar nuevos datos
@@ -68,12 +98,42 @@ function filterBooks() {
   });
 }
 
+// Variables para el modal
+const bookDetailsModal = document.getElementById("book-details-modal");
+const closeBtn = document.getElementsByClassName("close")[0];
+
 // Función para reservar un libro (simulación)
 function reserveBook(title) {
-  alert(`You have reserved: ${title}`);
+  const book = books.find((book) => book.title === title);
+  openBookDetailsModal(
+    book.title,
+    book.author,
+    "Book description goes here...",
+    "book-cover.jpg"
+  );
 }
 
+// Función para abrir el modal de detalles del libro
+function openBookDetailsModal(title, author, description, cover) {
+  document.getElementById("book-title").innerText = title;
+  document.getElementById("book-author").innerText = author;
+  document.getElementById("book-description").innerText = description;
+  document.getElementById("book-cover").src = cover;
+  bookDetailsModal.style.display = "block";
+}
 
+// Función para cerrar el modal de detalles del libro
+function closeBookDetailsModal() {
+  bookDetailsModal.style.display = "none";
+}
+
+// Eventos para abrir y cerrar el modal
+closeBtn.onclick = closeBookDetailsModal;
+window.onclick = function (event) {
+  if (event.target == bookDetailsModal) {
+    closeBookDetailsModal();
+  }
+};
 
 // Manejar la navegación entre secciones
 function showSection(sectionId) {
@@ -82,10 +142,9 @@ function showSection(sectionId) {
   document.getElementById(sectionId).classList.add("active");
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
   loadBooks(); // Cargar libros al iniciar
-  showSection("login"); 
+  showSection("login");
 });
 
 function showForgotPassword() {

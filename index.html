@@ -14,8 +14,7 @@
     <div class="app-title">Book Reservation App</div>
 
     <!-- Barra de búsqueda y menú de navegación -->
-    <div class="search-nav">
-      <input type="text" placeholder="Search...">
+    <div class="nav-bar">
       <div class="nav-menu">
         <a href="#" onclick="showSection('book-list')">Book List</a>
         <a href="#" onclick="showSection('profile')">My Profile</a>
@@ -125,6 +124,7 @@
             <option value="science">Science</option>
             <option value="history">History</option>
           </select>
+          <input type="text" id="search-box" placeholder="Search for books..." onkeyup="filterBooks()">
         </div>
 
         <h3>Available Books</h3>
@@ -141,6 +141,35 @@
           </tbody>
         </table>
       </div>
+
+      <!-- Modal para detalles del libro -->
+      <!-- Modal para detalles del libro -->
+      <div id="book-details-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+
+          <!-- Contenedor para título y autor -->
+          <div class="book-header">
+            <h2 id="book-title"></h2>
+            <p id="book-author"></p>
+          </div>
+
+          <!-- Contenedor central para descripción e imagen -->
+          <div class="book-info">
+            <p id="book-description" class="book-description"></p>
+            <img id="book-cover" src="" alt="Book cover">
+          </div>
+
+          <!-- Contenedor inferior para selector de días y botón de reserva -->
+          <div class="modal-footer">
+            <label for="days">Days:</label>
+            <input type="number" id="days" value="5" min="1">
+            <button class="reserve-button">Reserve</button>
+          </div>
+        </div>
+      </div>
+
+
     </div>
   </div>
 
