@@ -36,12 +36,14 @@ function loadBooks() {
     row.innerHTML = `
       <td>${book.title}</td>
       <td>${book.author}</td>
+      <td>${book.category}</td> <!-- Añadir categoría -->
       <td><button class="reserve-button" onclick="reserveBook('${book.title}')">Reserve</button></td>
     `;
 
     tableBody.appendChild(row);
   });
 }
+
 
 // // Filtrar libros según la categoría seleccionada
 // function filterBooks() {
@@ -91,6 +93,7 @@ function filterBooks() {
     row.innerHTML = `
       <td>${book.title}</td>
       <td>${book.author}</td>
+      <td>${book.category}</td> <!-- Asegúrate de incluir la categoría aquí -->
       <td><button class="reserve-button" onclick="reserveBook('${book.title}')">Reserve</button></td>
     `;
 
