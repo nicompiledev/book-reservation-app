@@ -1,0 +1,534 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Barra superior combinada de título y navegación */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: #00796b;
+  color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .app-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.header .nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header input[type="text"] {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Menú de navegación */
+.nav-menu {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  background-color: #004d40;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 20px;
+  height: 100vh;
+}
+
+/* Sección oculta */
+.section {
+  display: none;
+  flex: 1;
+}
+
+/* Sección activa */
+.section.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.login-box h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #00796b;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+  background-color: #004d40;
+}
+
+.login-box p,
+.signup-box p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.login-box a,
+.signup-box a {
+  text-decoration: none;
+  color: #00796b;
+}
+
+.login-box a:hover,
+.signup-box a:hover {
+  text-decoration: underline;
+}
+
+.signup-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.signup-box h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #00796b;
+}
+
+.signup-box input[type="text"],
+.signup-box input[type="email"],
+.signup-box input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.signup-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-box button:hover {
+  background-color: #004d40;
+}
+
+.forgot-password-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.forgot-password-box h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #00796b;
+}
+
+.forgot-password-box input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.forgot-password-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.forgot-password-box button:hover {
+  background-color: #004d40;
+}
+
+.forgot-password-box p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.forgot-password-box a {
+  text-decoration: none;
+  color: #00796b;
+}
+
+.forgot-password-box a:hover {
+  text-decoration: underline;
+}
+
+.account-info {
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  color: #333;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reservations-table,
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.reservations-table th,
+.book-table th,
+.reservations-table td,
+.book-table td {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.reservations-table th,
+.book-table th {
+  background-color: #00796b;
+  color: #fff;
+}
+
+.reserve-button,
+.delete-button {
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reserve-button {
+  background-color: #00796b;
+  color: #fff;
+}
+
+.reserve-button:hover {
+  background-color: #004d40;
+}
+
+.delete-button {
+  background-color: #ff3e3e;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #ff1a1a;
+}
+
+.book-list {
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  color: #333;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.book-list-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow-y: hidden;
+}
+
+.book-filter {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.book-filter label {
+  font-weight: bold;
+}
+
+.book-filter select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+}
+
+.book-filter input[type="text"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  width: 200px;
+  /* Ajusta el ancho según tus necesidades */
+}
+
+.book-table {
+  overflow-y: auto;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.book-table tbody {
+  display: table-row-group;
+}
+
+.book-table tr {
+  display: table-row;
+  height: fit-content;
+}
+
+.book-table td {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+/* Estilos para el modal */
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  margin: 100px auto;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Botón de cierre del modal */
+.modal .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+}
+
+.modal .close:hover {
+  color: #00796b;
+}
+
+/* Contenedor de título y autor */
+.book-header {
+  text-align: left;
+}
+
+.book-header h2 {
+  font-size: 22px;
+  color: #00796b;
+  margin-bottom: 8px;
+}
+
+.book-header p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Contenedor para la descripción e imagen */
+.book-info {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.book-description {
+  flex: 1;
+  font-size: 15px;
+  color: #666;
+  line-height: 1.5;
+}
+
+#book-cover {
+  max-width: 150px;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor para selector de días y botón de reserva */
+.modal-footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.modal-footer label {
+  font-size: 14px;
+  color: #555;
+}
+
+#days {
+  width: 60px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.reserve-button {
+  background-color: #00796b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reserve-button:hover {
+  background-color: #004d40;
+}
+
+
+.footer {
+  padding: 15px;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
